@@ -17,7 +17,7 @@ public class SellOneItemControllerTest {
     public void productFound() throws Exception {
         final Catalog catalog = context.mock(Catalog.class);
         final Display display = context.mock(Display.class);
-        final Price irrilevantPrice = Price.cents(11234);
+        final Price irrilevantPrice = Price.cents(795);
 
         context.checking(new Expectations(){{
             allowing(catalog).findPrice(with("12345"));
@@ -51,6 +51,7 @@ public class SellOneItemControllerTest {
         }
     }
 
+    //controller mediate the communication between display and catalog
     public static class SaleController{
         private Display display;
         private Catalog catalog;
