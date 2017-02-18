@@ -20,16 +20,14 @@ public class SellOneItemControllerTest {
         final Price irrilevantPrice = Price.cents(795);
 
         context.checking(new Expectations(){{
-            allowing(catalog).findPrice(with("12345"));
+            allowing(catalog).findPrice(with("::product found::"));
             will(returnValue(irrilevantPrice));
 
             oneOf(display).displayPrice(with(irrilevantPrice));
         }});
 
         SaleController saleController = new SaleController(display, catalog);
-        saleController.onBarcode("12345");
-
-        //context.assertIsSatisfied();
+        saleController.onBarcode("::product found::");
     }
 
     @Test
@@ -95,6 +93,7 @@ public class SellOneItemControllerTest {
         }
 
         public void onBarcode(String barcode){
+            //SMELL Shoud I get an empty barcode at all?
             if("".equals(barcode)){
                 display.diplayEmptyBarcode();
                 return;
