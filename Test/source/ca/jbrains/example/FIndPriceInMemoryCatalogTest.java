@@ -15,15 +15,29 @@ public class FIndPriceInMemoryCatalogTest {
 
         Price foundPrice = Price.cents(1250);
 
-        InMemoryCatalog catalog = new InMemoryCatalog(
-                Collections.singletonMap("12345", foundPrice));
+        Catalog catalog = catalogWith("12345", foundPrice);
 
         Assert.assertEquals(foundPrice,
                 catalog.findPrice("12345"));
 
     }
 
-    public static class InMemoryCatalog{
+    @Test
+    public void productNotFound() throws Exception {
+        Catalog catalog = catalogWithout("12345");
+        Assert.assertEquals(null,catalog.findPrice("12345"));
+    }
+
+    private Catalog catalogWith(String barcode, Price price) {
+        return new InMemoryCatalog(Collections.singletonMap(barcode,price));
+    }
+
+    private InMemoryCatalog catalogWithout(String barcode){
+        return new InMemoryCatalog(
+                Collections.emptyMap());
+    }
+
+    public static class InMemoryCatalog implements Catalog {
 
         private final Map<String, Price> pricesByBarcode;
 
