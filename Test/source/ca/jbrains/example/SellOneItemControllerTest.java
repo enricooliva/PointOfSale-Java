@@ -60,26 +60,18 @@ public class SellOneItemControllerTest {
 
     }
 
+
+    //the semantic of the catalog is defined by the test stub
     public interface Catalog{
         Price findPrice (String barcode);
     }
 
     public interface Display{
         void displayPrice(Price price);
+
         void displayProductNotFound(String with);
 
         void diplayEmptyBarcode();
-    }
-
-    public static class Price {
-        public static Price cents(int centsValue){
-            return new Price();
-        }
-
-        @Override
-        public String toString() {
-            return "a Price";
-        }
     }
 
     //controller mediate the communication between display and catalog
