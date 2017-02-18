@@ -49,6 +49,19 @@ public class SellOneItemControllerTest {
 
     }
 
+    @Test
+    public void emptyBarcode() throws Exception {
+        final Display display = context.mock(Display.class);
+        context.checking(new Expectations(){{
+            
+            oneOf(display).diplayEmptyBarcode();
+            
+        }});
+        SaleController saleController = new SaleController(display, null);
+        saleController.onBarcode("");
+
+    }
+
     public interface Catalog{
         Price findPrice (String barcode);
     }
@@ -56,6 +69,8 @@ public class SellOneItemControllerTest {
     public interface Display{
         void displayPrice(Price price);
         void displayProductNotFound(String with);
+
+        void diplayEmptyBarcode();
     }
 
     public static class Price {
@@ -80,6 +95,11 @@ public class SellOneItemControllerTest {
         }
 
         public void onBarcode(String barcode){
+            if("".equals(barcode)){
+                display.diplayEmptyBarcode();
+                return;
+            }
+
             Price price = catalog.findPrice(barcode);
             if (price==null)
                 display.displayProductNotFound(barcode);
