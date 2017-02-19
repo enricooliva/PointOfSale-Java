@@ -61,14 +61,6 @@ public class SellOneItemControllerTest {
     }
 
 
-    public interface Display{
-        void displayPrice(Price price);
-
-        void displayProductNotFound(String with);
-
-        void diplayEmptyBarcode();
-    }
-
     //controller mediate the communication between display and catalog
     public static class SaleController{
         private Display display;
