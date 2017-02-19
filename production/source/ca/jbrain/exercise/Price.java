@@ -1,4 +1,4 @@
-package ca.jbrains.example;
+package ca.jbrain.exercise;
 
 /**
  * Created by enricooliva on 18/02/2017.

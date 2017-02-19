@@ -1,5 +1,8 @@
-package ca.jbrains.example;
+package ca.jbrain.exercise;
 
+
+import ca.jbrain.exercise.Display;
+import ca.jbrain.exercise.Price;
 
 /**
  * Created by enricooliva on 19/02/2017.

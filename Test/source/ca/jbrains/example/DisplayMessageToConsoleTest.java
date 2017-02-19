@@ -1,5 +1,6 @@
 package ca.jbrains.example;
 
+import ca.jbrain.exercise.EnglishLanguageConsoleDisplay;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

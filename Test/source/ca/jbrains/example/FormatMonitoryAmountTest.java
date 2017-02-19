@@ -1,5 +1,7 @@
 package ca.jbrains.example;
 
+import ca.jbrain.exercise.EnglishLanguageConsoleDisplay;
+import ca.jbrain.exercise.Price;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
