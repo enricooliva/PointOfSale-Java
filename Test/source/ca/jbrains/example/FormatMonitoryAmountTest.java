@@ -51,7 +51,7 @@ public class FormatMonitoryAmountTest {
         ByteArrayOutputStream canvas =new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvas));
 
-        new ConsoleDisplay().displayPrice(Price.cents(this.princeInCents));
+        new ConsoleDisplay().displayPriceInDollars(new Price(this.princeInCents).dollarValue());
 
         Assert.assertEquals(
                 Arrays.asList(this.expectedFormatedPrice),
