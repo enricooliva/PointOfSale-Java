@@ -50,7 +50,26 @@ public class DisplayMessageToConsoleTest {
                 TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
+    @Test
+    public void multipleMessages() throws Exception {
+        ByteArrayOutputStream canvas = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(canvas));
 
+        ConsoleDisplay consoleDisplay = new ConsoleDisplay();
+        consoleDisplay.displayProductionNotFoundMessage("123455");
+        consoleDisplay.displayEmptyBarcodeMessage();
+        consoleDisplay.displayProductionNotFoundMessage("912345");
+        consoleDisplay.displayEmptyBarcodeMessage();
+
+        Assert.assertEquals(
+                Arrays.asList(
+                        "Product not found for 123455",
+                        "Scanning error: empty barcode",
+                        "Product not found for 912345",
+                        "Scanning error: empty barcode"),
+                TextUtilities.lines(canvas.toString("UTF-8")));
+
+    }
 
     private class ConsoleDisplay {
         public void displayProductionNotFoundMessage(String barcodeNotFond) {
