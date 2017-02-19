@@ -3,6 +3,8 @@ Client-First Design and Mock Objects
 extract semantics of the contract
 and implement it into test
 
+Dependency Inversion Principle, namely moving details
+"up" towards the client and abstractions "down" deeper into the system.
 
 Nice reference
 https://atomicobject.com/resources/presenter-first
