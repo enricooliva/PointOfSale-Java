@@ -10,8 +10,8 @@ public class ConsoleDisplay {
     public static final String SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT = "Scanning error: empty barcode";
     public static final String PRICE_IN_DOLLARS_MESSAGE_FORMAT = "$%,.2f";
 
-    public void displayProductionNotFoundMessage(Object... placeholders) {
-        displayMessage(PRODUCT_NOT_FOUND_FOR_MESSAGE_FORMAT, placeholders);
+    public void displayProductionNotFoundMessage(String barcodeNotFound) {
+        displayMessage(PRODUCT_NOT_FOUND_FOR_MESSAGE_FORMAT, barcodeNotFound);
     }
 
     private void displayMessage(String messageTemplate, Object... placeholderValues) {
@@ -26,12 +26,12 @@ public class ConsoleDisplay {
         System.out.println(text);
     }
 
-    public void displayEmptyBarcodeMessage(Object... placeholderValues) {
-        displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT, placeholderValues);
+    public void displayEmptyBarcodeMessage() {
+        displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT, "");
     }
 
-    public void displayPriceInDollars(Object... placeholderValues) {
-        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, placeholderValues);
+    public void displayPrice(Price price) {
+        displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, price.dollarValue());
     }
 
 
