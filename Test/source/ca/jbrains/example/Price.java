@@ -21,9 +21,6 @@ public class Price {
         return "a Price";
     }
 
-    String format(int priceInCents) {
-        return String.format("$%,.2f", priceInDollars(priceInCents));
-    }
 
     public double priceInDollars(int priceInCents) {
         return priceInCents / 100.0d;

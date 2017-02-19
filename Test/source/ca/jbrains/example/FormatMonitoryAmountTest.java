@@ -1,9 +1,12 @@
 package ca.jbrains.example;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -39,6 +42,21 @@ public class FormatMonitoryAmountTest {
     @Test
     public void simplest() throws Exception {
         assertEquals(this.expectedFormatedPrice, format(new Price(this.princeInCents)));
+    }
+
+    @Test
+    public void test() throws Exception {
+        assertEquals(this.expectedFormatedPrice, format(new Price(this.princeInCents)));
+
+        ByteArrayOutputStream canvas =new ByteArrayOutputStream();
+        System.setOut(new PrintStream(canvas));
+
+        new ConsoleDisplay().displayPrice(Price.cents(this.princeInCents));
+
+        Assert.assertEquals(
+                Arrays.asList(this.expectedFormatedPrice),
+                TextUtilities.lines(canvas.toString("UTF-8")));
+
     }
 
     String format(Price price) {

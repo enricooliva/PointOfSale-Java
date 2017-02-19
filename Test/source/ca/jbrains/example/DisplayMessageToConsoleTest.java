@@ -8,7 +8,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Created by enricooliva on 19/02/2017.
@@ -71,15 +70,4 @@ public class DisplayMessageToConsoleTest {
 
     }
 
-    private class ConsoleDisplay {
-        public void displayProductionNotFoundMessage(String barcodeNotFound) {
-            System.out.println(
-                    String.format("Product not found for %s",barcodeNotFound
-            ));
-        }
-
-        public void displayEmptyBarcodeMessage() {
-            System.out.println("Scanning error: empty barcode");
-        }
-    }
 }
