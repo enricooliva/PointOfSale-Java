@@ -9,7 +9,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by enricooliva on 19/02/2017.
@@ -37,7 +36,7 @@ public class LearnHowToHijackSystemOutTest {
 
         Assert.assertEquals(
                 Collections.singletonList("Hello, workd."),
-                lines(canvas.toString("UTF-8")));
+                TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
     @Test
@@ -51,10 +50,7 @@ public class LearnHowToHijackSystemOutTest {
 
         Assert.assertEquals(
                 Arrays.asList("Line 1","Line 2","Line 3","Line 4"),
-                lines(canvas.toString("UTF-8")));
+                TextUtilities.lines(canvas.toString("UTF-8")));
     }
 
-    private static List<String> lines(String text) {
-        return Arrays.asList(text.split("\\n"));
-    }
 }
