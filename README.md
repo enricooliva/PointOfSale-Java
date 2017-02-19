@@ -1,5 +1,8 @@
 # PointOfSale-Java
 Client-First Design and Mock Objects
+extract semantics of the contract
+and implement it into test
+
 
 Nice reference
 https://atomicobject.com/resources/presenter-first
