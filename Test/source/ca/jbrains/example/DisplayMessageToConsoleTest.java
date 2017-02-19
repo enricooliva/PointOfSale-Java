@@ -72,9 +72,9 @@ public class DisplayMessageToConsoleTest {
     }
 
     private class ConsoleDisplay {
-        public void displayProductionNotFoundMessage(String barcodeNotFond) {
+        public void displayProductionNotFoundMessage(String barcodeNotFound) {
             System.out.println(
-                    String.format("Product not found for %s",barcodeNotFond
+                    String.format("Product not found for %s",barcodeNotFound
             ));
         }
 
