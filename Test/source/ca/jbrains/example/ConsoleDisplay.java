@@ -27,15 +27,11 @@ public class ConsoleDisplay {
     }
 
     public void displayEmptyBarcodeMessage() {
-        displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT, "");
+        displayMessage(SCANNING_ERROR_EMPTY_BARCODE_MESSAGE_FORMAT);
     }
 
     public void displayPrice(Price price) {
         displayMessage(PRICE_IN_DOLLARS_MESSAGE_FORMAT, price.dollarValue());
     }
 
-
-//    public void display(MessageFormat messageFormat, Object... placehoders){
-//        System.out.print(String.format(messageFormat,placehoders));
-//    }
 }
